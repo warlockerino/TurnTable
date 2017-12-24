@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Tisch</title>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-12">
+    <h2>Tisch</h2>
+        <div class="jumbotron">
+            {{table}}
+            <h1>{{ table.name }}</h1>
+        <p>
+            {{ table.description }}
+           
+            
+        </p>
+    </div>
+</div>
+</div>
+{% endblock %}

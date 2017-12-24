@@ -12,7 +12,7 @@ from django.contrib.auth.views import (
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'^login/$',login, {'template_name':'login.html'}),
+    url(r'^login/$',login, {'template_name':'login.html'} ,name='login'),
     url(r'^profile/logout/$', logout, {'template_name':'logout.html'}),
     url(r'^logout/$', logout ,{'next_page': '/profile/login'}),
     url(r'^register/$', views.register,name='register'),

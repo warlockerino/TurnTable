@@ -1,23 +1,25 @@
-from django import forms
+from django.forms import ModelForm
 from .models import Table
 
-class TableForm(forms.ModelForm):
+class TableForm(ModelForm):
 
     class Meta:
         model = Table
         fields = (
-            'owner', 
+            'name',
             'description', 
             'city',
-            'created',
-            'updated',
-            'people',
         )
+    def __init__(self, user, *args, **kwargs):
+        self.user = user
+        super(TableForm, self).__init__(*args, **kwargs)
 
     
     def save(self, commit=True):
-        Table.owner = self.cleaned_data['owner']
-        Table.description = self.cleaned_data['description']
+        data = self.cleaned_data
+        Table.description = data['description']
         Table.city = self.cleaned_data['city']
         Table.people = self.cleaned_data['people']
         return Table
+
+        

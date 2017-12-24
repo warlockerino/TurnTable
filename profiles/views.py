@@ -10,7 +10,7 @@ from django.contrib.auth.forms import (
 )
 
 
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import update_session_auth_hash, login 
 from django.contrib.auth.decorators import login_required
 
 from .forms import (
@@ -25,6 +25,10 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid:
             form.save()
+            user = form.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_passwor)
+            login(request, user)           
             return redirect('/profile')
     
     #get form

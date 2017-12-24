@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rango</title>
+    </head>
+
+    <body>
+        <h1>Rango says...hello world!</h1>
+
+        {% if table_list %}
+            <ul>
+                {% for table in table_list %}
+                <ul>
+                    <li>Name : {{ table.name }} ({{ table.owner.user.username }})</li>
+                    <li>Beschreibung : {{ table.description }} + {{table.id}}</li>
+                </ul>
+                <br>
+                {% endfor %}
+            
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
+
+        <a href="/rango/about/">About</a>
+    </body>
+</html>
