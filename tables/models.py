@@ -16,8 +16,6 @@ class Table(models.Model):
     updated = models.DateTimeField(auto_now=True, null=True, blank=True)
     #tags = models.ManyToManyField('tag.Tag', through='TableTagRel')
     people = models.ManyToManyField(User, related_name='tables')
-    
-    
             
     def __str__(self):
         return "%s : %s" % (self.name, self.owner.username)

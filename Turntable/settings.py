@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     #install accs
     'profiles',
     'tables',
+    'polls',
 ]
 
 MIDDLEWARE = [

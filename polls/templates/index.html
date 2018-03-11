@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Polls</title>
+
+
+{% endblock %} 
+{% block body %}
+{% if latest_question_list %}
+<div class="list-group">
+    {% for question in latest_question_list %}
+
+        <a href="{{ question.get_absolute_url }}" class="list-group-item flex-column">
+          <div class="d-flex justify-content-end">
+            <div class="mr-auto p-2"><h5 class="mb-1 mr-auto p-2">{{question.question_text}}</h5></div> 
+            <div class="p-2"><span class="badge p-2">{{ question.get_votes}} votes</span></div>
+            <div class="p-2"> <small class="p-2"> {{question.get_date}} </small></div>
+          </div>
+         
+        </a>
+    {% endfor %}
+</div>       
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% endblock %}
+
+
+  
